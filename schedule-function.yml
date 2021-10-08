@@ -1,0 +1,12 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+functions:
+  schedule-function:
+    lang: node14
+    handler: ./src
+    image: apimate/schedule-function:test0.2
+    annotations:
+      topic: cron-function
+      schedule: "*/1 * * * *" # every 1 minute
