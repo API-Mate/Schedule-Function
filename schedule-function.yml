@@ -6,7 +6,11 @@ functions:
   schedule-function:
     lang: node14
     handler: ./src
-    image: apimate/schedule-function:test0.2
+    image: apimate/schedule-function:0.0.7
+    labels:
+      com.openfaas.scale.min: 1
+      com.openfaas.scale.max: 20
+      com.openfaas.scale.factor: 20
     annotations:
       topic: cron-function
       schedule: "*/1 * * * *" # every 1 minute
